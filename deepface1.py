@@ -3,7 +3,7 @@
 from deepface import DeepFace
 import cv2
 # 用cv2顯示圖片
-imgpath = "cflin.jpg"
+imgpath = "aaa.jpg"
 # img_sr = cv2.imread(imgpath)
 # cv2.imshow('aaa', img_sr)
 # 人臉偵測
@@ -17,18 +17,18 @@ image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 face1 = 'cflin.jpg'
 face2 = 'cflin3.jpg'
 result = DeepFace.verify(
-    face1, face2, model_name='Facenet', enforce_detection=False)
+    face1, face2, model_name='VGG-Face', enforce_detection=False)
 print(result)
 if result['verified'] == True:
     print("這二張圖片是同一個人")
 else:
     print("這二張圖片不是同一個人")
 # 尋找相同的臉
-face1 = "./dataset/img11.jpg"
-df = DeepFace.find(img_path=face1, db_path='./dataset',
-                   model_name='Facenet', enforce_detection=False)
-#condition = df['Facenet_cosine'] < 0.2
-print(df)
+# face1 = "./dataset/img13.jpg"
+# df = DeepFace.find(img_path=face1, db_path='./dataset',
+#                    model_name='Facenet', enforce_detection=False)
+# #condition = df['Facenet_cosine'] < 0.2
+# print(df)
 # 人臉屬性分析
 obj = DeepFace.analyze(
     img_path=imgpath,
@@ -37,6 +37,6 @@ obj = DeepFace.analyze(
 print(obj)
 
 cv2.imshow('bbb', image)
-plt.imshow(image)
+# plt.imshow(image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()

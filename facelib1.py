@@ -3,6 +3,7 @@ from face_lib import face_lib
 FL = face_lib()
 img = cv2.imread('cflin1.png')
 faces = FL.get_faces(img)
+# face = cv2.cvtColor(faces[0], cv2.COLOR_RGB2BGR)
 cv2.imshow('ttt', faces[0])
 cap = cv2.VideoCapture(0)
 if cap.isOpened() == False:
@@ -24,5 +25,6 @@ while(cap.isOpened()):
         cv2.imshow('cflin', frame)
     if cv2.waitKey(10) & 0xFF == 27:
         break
+# cv2.waitKey()
 cap.release()
 cv2.destroyAllWindows()

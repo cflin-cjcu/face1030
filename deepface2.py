@@ -2,7 +2,7 @@ from deepface import DeepFace
 import cv2
 # In VideoCapture object either Pass address of your Video file
 # Or If the input is the camera, pass 0 instead of the video file
-imgpath = "cflin.jpg"
+imgpath = "aaa.jpg"
 cap = cv2.VideoCapture(0)
 if cap.isOpened() == False:
     print("Error in opening video stream or file")
@@ -12,7 +12,7 @@ while(cap.isOpened()):
         # Display the resulting frame
         cv2.imshow('Frame', frame)
         result = DeepFace.verify(
-            frame, imgpath, model_name='Facenet', enforce_detection=False)
+            frame, imgpath, model_name='VGG-Face', enforce_detection=False)
         print(result)
         if result['verified'] == True:
             print("這二張圖片是同一個人")
